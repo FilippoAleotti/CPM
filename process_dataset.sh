@@ -27,5 +27,5 @@ while read line; do
 
     cd ../RIC
     ./RIC "$DATASET_DIR/$image1"  "$DATASET_DIR/$image2" "$OUTDIR/$name"
-
+    cd ..
 done < $FILE

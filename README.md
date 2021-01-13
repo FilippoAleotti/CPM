@@ -51,9 +51,10 @@ The script `process_dataset.sh` allows to run CPM+RIC for a list of images.
 ```
 DATA=path_to_dataset_folder
 OUTDIR="output"
+NAMES=path_to_file_with_names.txt
 
 mkdir $OUTDIR
-sudo docker run -it -v $DATA:/workspace/data -v $OUTDIR=/workspace/temp --name flow flow_container
+sudo docker run -it -v $DATA:/workspace/dataset -v $OUTDIR:/workspace/temp -v $NAMES:/workspace/names.txt --name flow flow_container
 ```
 
 Note that `$DATA` and `$OUTDIR` have to be absolute paths.
@@ -61,12 +62,7 @@ Note that `$DATA` and `$OUTDIR` have to be absolute paths.
 Then:
 
 ```
-
-DATA=path_to_dataset_folder
-OUTDIR="output"
-NAMES=path_to_file_with_names.txt
-
-bash process_dataset.sh $DATA $OUTDIR $NAMES
+bash process_dataset.sh /workspace/dataset /workspace/temp /workspace/names.txt
 ```
 
 Where `$NAMES` is a txt file where each line looks like:
@@ -76,13 +72,18 @@ path_to_image1 path_to_image2 final_name
 ```
 
 The path to the image (e.g., image1) is given by `$DATA/path_to_image1`
-## Delete images and containers
-
+## Stop containers and Delete images
+To stop every running container, you can run:
 ```
-sudo docker stop $(sudo docker ps -a -q)
-sudo docker rm $(sudo docker ps -a -q)
+sudo docker stop $(sudo docker ps -a -q); sudo docker rm $(sudo docker ps -a -q)
+```
+
+Moreover, if you desire to free disk space, you can delete the Docker image.
+To delete **every** docker image, run:
+```
 sudo docker image prune -a
 ```
+
 **NOTE:** Do not run these commands if you are using Docker in other projects
 
 # Citations
