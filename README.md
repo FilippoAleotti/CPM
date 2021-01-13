@@ -9,7 +9,7 @@ In particular, methods are:
 Since both the code-bases require `opencv-3.x` and `opencv-contribs` for C++, this project enables to deploy them on different machines using a shared Docker container. 
 
 # Run
-The base container already contains `opencv-3.4.11` and `opencv-contribs` compiled for C/C++.
+The base image already contains `opencv-3.4.11` and `opencv-contribs` compiled for C/C++.
 
 You can build the container by running:
 
