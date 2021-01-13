@@ -1,48 +1,43 @@
-# Introduction
+# Docker wrapper to CPM-flow and RIC-flow
+This project wraps two methods for optical flow estimation and refinement.
+In particular, methods are:
+* `Efficient Coarse-to-Fine PatchMatch for Large Displacement Optical Flow`: original code available [here](https://github.com/YinlinHu/CPM)
+* `Robust Interpolation of Correspondences for Large Displacement Optical Flow`: original code available [here](https://github.com/YinlinHu/Ric)
 
-This repository contains the code for the paper **Efficient Coarse-to-Fine PatchMatch for Large Displacement Optical Flow**. [Yinlin Hu](http://yinlinhu.github.io), Rui Song, and Yunsong Li. CVPR. 2016. [\[Paper\]](https://zpascal.net/cvpr2016/Hu_Efficient_Coarse-To-Fine_PatchMatch_CVPR_2016_paper.pdf)
 
-# How to Use
 
-It is assumed that the OpenCV has been installed correctly.
+Since both the code-bases require `opencv-3.x` and `opencv-contribs` for C++, this project enable to deploy them on different machines using a shared Docker container. 
 
-```
-$ cmake .
-$ make
-```
-
-Then, you can play with the examples:
-
-```
-$ bash demo.sh
-```
-
-# Run me on Docker!
-We dockerized this project to make it easy to use.
+# Run
 The base container already contains `opencv-3.4.11` and `opencv-contribs` compiled for C/C++.
 
 You can build the container by running:
 
 ```
-sudo docker build --tag cpm_container $PWD
+sudo docker build --tag flow_container $PWD
 ```
 
-Then, you can start it with:
+The image contains a `workspace` folder with `CPM` and `RIC` folders inside. 
+
+From this image, you can start a new container from it with:
 
 ```
-sudo docker run -it -v ${PWD}/out:/CPM/out --name cpm cpm_container 
+sudo docker run -it --name cpm flow_container 
 ```
 
-Note that we bind the local `data` folder to the `data` folder inside the container. Doing so, artifacts created inside the container will be available even in our local filesystem.
-
-Inside the container, you can run the code. For instance, to run the demo example simply call:
+Then, you are free to call a single project or to combine them.
+For instance, to run CPM's demo, you can:
 
 ```
+cd CPM
 bash demo.sh
 ```
 
+## Data folder binding
 
-# Citing
+To do...
+
+# Citations
 
 ```
 @inproceedings{hu2016cpm,
@@ -50,5 +45,15 @@ bash demo.sh
   author={Yinlin Hu and Rui Song and Yunsong Li},
   booktitle={CVPR},
   year={2016}
+}
+```
+
+```
+@inproceedings{hu2017robust,
+  title={Robust interpolation of correspondences for large displacement optical flow},
+  author={Hu, Yinlin and Li, Yunsong and Song, Rui},
+  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+  pages={481--489},
+  year={2017}
 }
 ```

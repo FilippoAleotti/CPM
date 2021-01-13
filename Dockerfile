@@ -5,16 +5,14 @@ RUN mkdir /workspace
 RUN mkdir /workspace/CPM
 RUN useradd -d /workspace user
 
-COPY . /workspace/CPM
+COPY ./CPM /workspace/CPM
 WORKDIR /workspace/CPM
 RUN cmake .
 RUN make
 
 RUN mkdir /workspace/RIC
-WORKDIR /workspace/RIC
-RUN git clone https://github.com/YinlinHu/Ric.git
-RUN mv Ric/* .
-RUN rm -r Ric
+COPY ./RIC /workspace/RIC
+
 WORKDIR /workspace/RIC
 RUN make -f Makefile -j 7
 
