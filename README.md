@@ -65,6 +65,7 @@ Then:
 DATA=path_to_dataset_folder
 OUTDIR="output"
 NAMES=path_to_file_with_names.txt
+
 bash process_dataset.sh $DATA $OUTDIR $NAMES
 ```
 
