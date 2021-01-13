@@ -44,8 +44,38 @@ sudo docker run -it -v ${PWD}/data:/workspace/data --name flow flow_container
 
 By running the `demo.sh` script you can notice that your local `data` folder now contains the results of `CPM` and `RIC`.
 
+## Process a dataset
 
-## Delete images and conainers
+The script `process_dataset.sh` allows to run CPM+RIC for a list of images.
+
+```
+DATA=path_to_dataset_folder
+OUTDIR="output"
+
+mkdir $OUTDIR
+sudo docker run -it -v $DATA:/workspace/data -v $OUTDIR=/workspace/temp --name flow flow_container
+```
+
+Note that `$DATA` and `$OUTDIR` have to be absolute paths.
+
+Then:
+
+```
+
+DATA=path_to_dataset_folder
+OUTDIR="output"
+NAMES=path_to_file_with_names.txt
+bash process_dataset.sh $DATA $OUTDIR $NAMES
+```
+
+Where `$NAMES` is a txt file where each line 
+
+```
+path_to_image1 path_to_image2 final_name
+```
+
+The path to the image (e.g., image1) is given by `$DATA/path_to_image1`
+## Delete images and containers
 
 ```
 sudo docker stop $(sudo docker ps -a -q)
