@@ -35,7 +35,15 @@ bash demo.sh
 
 ## Data folder binding
 
-To do...
+You can also bind local folders in your machine with folders inside the container.
+For instance, you can bind the `data` folder (copied inside the conainer) with our local `data` folder.
+
+```
+sudo docker run -it -v ${PWD}/data:/workspace/data --name flow flow_container
+```
+
+By running the `demo.sh` script you can notice that your local `data` folder now contains the results of `CPM` and `RIC`.
+
 
 ## Delete images and conainers
 

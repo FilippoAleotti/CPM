@@ -16,4 +16,5 @@ COPY ./RIC /workspace/RIC
 WORKDIR /workspace/RIC
 RUN make -f Makefile -j 7
 
+COPY ./demo.sh /workspace
 WORKDIR /workspace
