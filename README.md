@@ -37,6 +37,15 @@ bash demo.sh
 
 To do...
 
+## Delete images and conainers
+
+```
+sudo docker stop $(sudo docker ps -a -q)
+sudo docker rm $(sudo docker ps -a -q)
+sudo docker image prune -a
+```
+**NOTE:** Do not run these commands if you are using Docker in other projects
+
 # Citations
 
 ```
