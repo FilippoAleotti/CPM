@@ -9,9 +9,13 @@
 # the name, instead, will be used to name the output file.
 
 PROJ_DIR=$PWD
-DATASET_DIR="$PROJ_DIR"
-OUTDIR="$PROJ_DIR/data"
-FILE="data/dataset.txt" 
+DATASET_DIR=$1
+OUTDIR=$2
+FILE=$3
+
+#DATASET_DIR="$PROJ_DIR"
+#OUTDIR="$PROJ_DIR/data"
+#FILE="data/dataset.txt" 
 
 while read line; do
     IFS=" " read -a strarr <<< "$line"
