@@ -69,7 +69,7 @@ NAMES=path_to_file_with_names.txt
 bash process_dataset.sh $DATA $OUTDIR $NAMES
 ```
 
-Where `$NAMES` is a txt file where each line 
+Where `$NAMES` is a txt file where each line looks like:
 
 ```
 path_to_image1 path_to_image2 final_name
