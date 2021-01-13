@@ -110,9 +110,9 @@ int main(int argc, char **argv)
 		strcpy(outName, baseName);
 		strcat(outName, ".ric.flo");
 		OpticFlowIO::WriteFlowFile(u.pData, v.pData, w, h, outName);
-		strcpy(outName, baseName);
-		strcat(outName, ".ric.png");
-		OpticFlowIO::SaveFlowAsImage(outName, u.pData, v.pData, w, h);
+		//strcpy(outName, baseName);
+		//strcat(outName, ".ric.png");
+		//OpticFlowIO::SaveFlowAsImage(outName, u.pData, v.pData, w, h);
 	}
 	else
 	{

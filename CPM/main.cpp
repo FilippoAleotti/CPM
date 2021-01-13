@@ -84,7 +84,7 @@ int main(int argc, char** argv)
 	strcpy(tmpName, outMatName);
 	strcat(tmpName, ".png");
 	Match2Flow(matches, u, v, w, h);
-	OpticFlowIO::SaveFlowAsImage(tmpName, u.pData, v.pData, w, h);
+	//OpticFlowIO::SaveFlowAsImage(tmpName, u.pData, v.pData, w, h);
 
 	WriteMatches(outMatName, matches);
 
