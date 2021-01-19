@@ -44,6 +44,8 @@ sudo docker run -it -v ${PWD}/data:/workspace/data --name flow flow_container
 
 By running the `demo.sh` script you can notice that your local `data` folder now contains the results of `CPM` and `RIC`.
 
+**NOTE:** If `$DATA` is a remote disk, it has to be mounted using `sudo sshfs`
+
 ## Process a dataset
 
 The script `process_dataset.sh` allows to run CPM+RIC for a list of images.
