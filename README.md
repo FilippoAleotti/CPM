@@ -22,14 +22,13 @@ The image contains a `workspace` folder with `CPM` and `RIC` folders inside.
 From this image, you can start a new container from it with:
 
 ```
-sudo docker run -it --name cpm flow_container 
+sudo docker run -it --name demo flow_container 
 ```
 
 Then, you are free to call a single project or to combine them.
 For instance, to run CPM's demo, you can:
 
 ```
-cd CPM
 bash demo.sh
 ```
 

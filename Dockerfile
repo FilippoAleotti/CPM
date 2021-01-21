@@ -19,7 +19,11 @@ RUN make -f Makefile -j 7
 COPY ./demo.sh /workspace
 COPY ./process_dataset.sh /workspace
 
+RUN mkdir /workspace/data-demo
+COPY ./data-demo/* /workspace/data-demo/ 
+
 RUN mkdir /workspace/temp
 RUN mkdir /workspace/dataset
+
 
 WORKDIR /workspace
